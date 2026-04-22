@@ -18,6 +18,17 @@ function setBackground(bg) {
         overlay.style.opacity = "1";
     }, 300);
 }
+function setFavicon(isDay) {
+    let favicon = document.querySelector("link[rel='icon']");
+    if (!favicon) {
+        favicon = document.createElement("link");
+        favicon.rel = "icon";
+        document.head.appendChild(favicon);
+    }
+    favicon.href = isDay
+        ? "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>"
+        : "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>";
+}
 // 🔹 Fetch Weather
 async function getWeather(city) {
     try {
@@ -30,6 +41,7 @@ async function getWeather(city) {
         const sunrise = data.sys.sunrise;
         const sunset = data.sys.sunset;
         const isDay = currentTime > sunrise && currentTime < sunset;
+        setFavicon(isDay);
         const condition = data.weather[0].main;
         clearAnimation();
         // 🌙 Night stars

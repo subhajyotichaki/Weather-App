@@ -25,6 +25,20 @@ function setBackground(bg: string) {
   }, 300);
 }
 
+function setFavicon(isDay: boolean): void {
+  let favicon = document.querySelector("link[rel='icon']") as HTMLLinkElement | null;
+
+  if (!favicon) {
+    favicon = document.createElement("link") as HTMLLinkElement;
+    favicon.rel = "icon";
+    document.head.appendChild(favicon);
+  }
+
+  favicon.href = isDay
+    ? "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀️</text></svg>"
+    : "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌙</text></svg>";
+}
+
 // 🔹 Fetch Weather
 async function getWeather(city: string): Promise<void> {
   try {
@@ -42,6 +56,12 @@ async function getWeather(city: string): Promise<void> {
     const sunset = data.sys.sunset;
 
     const isDay = currentTime > sunrise && currentTime < sunset;
+    setFavicon(isDay);
+
+    
+
+    
+
 
     const condition = data.weather[0].main;
 
