@@ -495,3 +495,191 @@ p {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+
+/* 📱 MOBILE FIXES */
+@media (max-width: 768px) {
+
+  body {
+    padding-top: 140px;   /* reduced */
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .search-box {
+    flex-direction: column;   /* stack input + button */
+    gap: 8px;
+  }
+
+  #searchBtn {
+    width: 100%;
+  }
+
+  .location-btn {
+    width: 100%;
+  }
+
+  #weatherIcon {
+    width: 90px;
+    height: 90px;
+  }
+
+  #forecastContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .forecast-card {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+}
+
+/* 📱 EXTRA SMALL DEVICES */
+@media (max-width: 480px) {
+
+  body {
+    padding-top: 120px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  #forecastContainer {
+    grid-template-columns: 1fr;
+  }
+
+  #weatherResult p {
+    font-size: 12px;
+  }
+
+  #cityName {
+    font-size: 20px;
+  }
+}
+
+
+/* 📱 APP-LIKE MOBILE UI */
+@media (max-width: 768px) {
+
+  body {
+    padding: 0;
+    padding-top: 90px;
+    align-items: flex-start;
+  }
+
+  /* Header like app top bar */
+  .app-header {
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .subtitle {
+    display: none; /* cleaner app look */
+  }
+
+  /* Main container becomes full screen */
+  .container {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+    padding: 15px;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  /* Sections spacing */
+  .left-section,
+  .right-section {
+    width: 100%;
+  }
+
+  /* Search bar like app */
+  .search-box {
+    flex-direction: row;
+    padding: 8px;
+    border-radius: 30px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  #searchBtn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  /* Location button full width */
+  .location-btn {
+    width: 100%;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+
+  /* Weather card look */
+  #weatherResult {
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 15px;
+  }
+
+  #cityName {
+    font-size: 20px;
+  }
+
+  #weatherIcon {
+    width: 80px;
+    height: 80px;
+  }
+
+  #weatherResult p {
+    font-size: 13px;
+  }
+
+  /* Forecast horizontal scroll (APP STYLE 🔥) */
+  #forecastContainer {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    padding-bottom: 10px;
+  }
+
+  .forecast-card {
+    min-width: 80px;
+    flex: 0 0 auto;
+    padding: 10px;
+    border-radius: 15px;
+  }
+
+  /* Hide scrollbar (premium feel) */
+  #forecastContainer::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Bottom spacing like app */
+  body::after {
+    content: "";
+    display: block;
+    height: 30px;
+  }
+}
