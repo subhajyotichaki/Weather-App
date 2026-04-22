@@ -683,3 +683,65 @@ p {
     height: 30px;
   }
 }
+@media (max-width: 768px) {
+
+  body {
+    padding: 0;
+    padding-top: 80px;
+    background: transparent;
+  }
+
+  /* ❌ REMOVE BOX LOOK */
+  .container {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 15px;
+    grid-template-columns: 1fr;
+  }
+
+  /* Make everything inside align properly */
+  .left-section,
+  .right-section {
+    width: 100%;
+  }
+
+  /* Fix search overflow */
+  .search-box {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  #searchBtn {
+    width: 100%;
+  }
+
+  /* Fix location button */
+  .location-btn {
+    width: 100%;
+  }
+
+  /* Weather card becomes main card */
+  #weatherResult {
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 15px;
+    width: 100%;
+  }
+
+  /* Forecast scroll */
+  #forecastContainer {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+  }
+
+  .forecast-card {
+    min-width: 80px;
+  }
+}
