@@ -30,7 +30,7 @@ async function getWeather(city: string): Promise<void> {
   try {
     error.textContent = "Loading...";
     const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city},IN&appid=${apiKey}&units=metric`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${city},&appid=${apiKey}&units=metric`,
     );
 
     if (!response.ok) throw new Error("City not found");
@@ -220,7 +220,7 @@ function createStars() {
   const container = document.getElementById("weatherAnimation") as HTMLElement;
   container.innerHTML = "";
 
-  for (let i = 0; i < 80; i++) {
+  for (let i = 0; i < 120; i++) {
     const star = document.createElement("div");
     star.classList.add("star");
 
@@ -265,4 +265,12 @@ function createRain() {
 
     container.appendChild(drop);
   }
+}
+// navbar scroll effect
+const header = document.querySelector(".app-header");
+
+if (header) {
+  window.addEventListener("scroll", () => {
+    header.classList.toggle("scrolled", window.scrollY > 20);
+  });
 }

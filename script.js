@@ -22,7 +22,7 @@ function setBackground(bg) {
 async function getWeather(city) {
     try {
         error.textContent = "Loading...";
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},IN&appid=${apiKey}&units=metric`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},&appid=${apiKey}&units=metric`);
         if (!response.ok)
             throw new Error("City not found");
         const data = await response.json();
@@ -180,7 +180,7 @@ function clearAnimation() {
 function createStars() {
     const container = document.getElementById("weatherAnimation");
     container.innerHTML = "";
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 120; i++) {
         const star = document.createElement("div");
         star.classList.add("star");
         star.style.top = Math.random() * 100 + "vh";
@@ -216,4 +216,11 @@ function createRain() {
         drop.style.opacity = Math.random().toString();
         container.appendChild(drop);
     }
+}
+// navbar scroll effect
+const header = document.querySelector(".app-header");
+if (header) {
+    window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 20);
+    });
 }
