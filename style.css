@@ -693,12 +693,16 @@ p {
 
   /* ❌ REMOVE BOX LOOK */
   .container {
+    width: 100%;
+    padding: 15px;
     background: transparent;
     box-shadow: none;
     border: none;
     border-radius: 0;
-    padding: 15px;
-    grid-template-columns: 1fr;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 
   /* Make everything inside align properly */
