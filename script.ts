@@ -101,8 +101,15 @@ async function getWeather(city: string): Promise<void> {
     ) as HTMLImageElement;
 
     if (condition === "Clear") {
-      weatherIcon.src = "https://cdn-icons-png.flaticon.com/512/869/869869.png";
-    } else if (condition === "Clouds") {
+    if (isDay) {
+        // ☀️ Day → Sun
+        weatherIcon.src = "https://cdn-icons-png.flaticon.com/512/869/869869.png";
+    } else {
+        // 🌙 Night → Moon
+        weatherIcon.src = "https://cdn-icons-png.flaticon.com/512/581/581601.png";
+    }
+}
+     else if (condition === "Clouds") {
       weatherIcon.src = "https://cdn-icons-png.flaticon.com/512/414/414825.png";
     } else if (condition === "Rain") {
       weatherIcon.src =

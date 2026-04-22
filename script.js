@@ -80,7 +80,14 @@ async function getWeather(city) {
         // ✅ ADD ICON CODE HERE (AFTER data)
         const weatherIcon = document.getElementById("weatherIcon");
         if (condition === "Clear") {
-            weatherIcon.src = "https://cdn-icons-png.flaticon.com/512/869/869869.png";
+            if (isDay) {
+                // ☀️ Day → Sun
+                weatherIcon.src = "https://cdn-icons-png.flaticon.com/512/869/869869.png";
+            }
+            else {
+                // 🌙 Night → Moon
+                weatherIcon.src = "https://cdn-icons-png.flaticon.com/512/581/581601.png";
+            }
         }
         else if (condition === "Clouds") {
             weatherIcon.src = "https://cdn-icons-png.flaticon.com/512/414/414825.png";
